@@ -6,7 +6,8 @@ ENV rpc-password=admin
 RUN apk add --update --no-cache \
     transmission-daemon gettext
 
-RUN mkdir -p /transmission/{downloads,incomplete,conf} 
+RUN mkdir -p /transmission/{downloads,incomplete,conf}  && ls -lha /transmission/ && mkdir -p /transmission/conf
+ 
   
 ADD settings.json /transmission/conf/settings.json && ls -lha /transmission/conf
 
