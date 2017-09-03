@@ -10,7 +10,7 @@ RUN mkdir -p /transmission/downloads /transmission/incomplete /transmission/conf
 
 COPY settings.json /transmission/conf/
 
-RUN cat /transmission/conf/settings.json | envsubst > /transmission/conf/settings.json
+#RUN cat /transmission/conf/settings.json | envsubst > /transmission/conf/settings.json
 
 VOLUME ["/transmission/conf"]
 VOLUME ["/transmission/downloads"]
