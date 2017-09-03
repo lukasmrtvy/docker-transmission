@@ -4,8 +4,7 @@ RUN apk add --update --no-cache \
     transmission-daemon 
 
 RUN mkdir -p /transmission/downloads \
-  && mkdir -p /transmission/incomplete \
-  && mkdir -p /etc/transmission-daemon
+  && mkdir -p /transmission/incomplete
 
 VOLUME ["/etc/transmission-daemon"]
 VOLUME ["/transmission/downloads"]
