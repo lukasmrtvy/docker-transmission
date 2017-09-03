@@ -11,7 +11,7 @@ RUN mkdir -p /transmission/downloads \
   
 ADD settings.json /transmission/
 
-RUN cat .env /transmission/settings.json | envsubst > /transmission/settings.json
+RUN cat /transmission/settings.json | envsubst > /transmission/settings.json
 
 VOLUME ["/etc/transmission-daemon"]
 VOLUME ["/transmission/downloads"]
