@@ -1,8 +1,7 @@
-FROM alpine:edge
+FROM alpine:latest
 
-RUN apk add --update \
-    transmission-daemon \
-    && rm -rf /var/cache/apk/*
+RUN apk add --update --no-cache \
+    transmission-daemon 
 
 RUN mkdir -p /transmission/downloads \
   && mkdir -p /transmission/incomplete \
