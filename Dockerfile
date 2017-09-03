@@ -7,11 +7,10 @@ RUN apk add --update --no-cache \
     transmission-daemon gettext
 
 RUN mkdir -p /transmission/{downloads,incomplete,conf}  && mkdir -p /transmission/conf && ls -lha /transmission/
- 
-  
-COPY settings.json /transmission/conf && ls -lha /transmission/conf
 
-# RUN cat /transmission/settings.json | envsubst > /transmission/settings.json
+COPY settings.json /transmission/conf
+
+RUN cat /transmission/conf/settings.json | envsubst > /transmission/conf/settings.json
 
 VOLUME ["/transmission/conf"]
 VOLUME ["/transmission/downloads"]
