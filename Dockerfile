@@ -8,7 +8,7 @@ RUN apk add --update --no-cache \
 
 RUN mkdir -p /transmission/{downloads,incomplete,conf} 
   
-ADD settings.json /transmission/conf
+ADD settings.json /etc/transmission-daemon
 
 # RUN cat /transmission/settings.json | envsubst > /transmission/settings.json
 
@@ -18,5 +18,5 @@ VOLUME ["/transmission/incomplete"]
 
 EXPOSE 9091 51413/tcp 51413/udp
 
-CMD exec /usr/bin/transmission-daemon --foreground  --config-dir  /transmission/
+CMD exec /usr/bin/transmission-daemon --foreground  --config-dir /etc/transmission-daemon
 
