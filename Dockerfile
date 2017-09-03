@@ -8,7 +8,7 @@ RUN apk add --update --no-cache \
 
 RUN mkdir -p /transmission/{downloads,incomplete,conf} 
   
-ADD settings.json /etc/transmission-daemon
+ADD settings.json /etc/transmission-daemon && ls -lha /etc/transmission-daemon
 
 # RUN cat /transmission/settings.json | envsubst > /transmission/settings.json
 
