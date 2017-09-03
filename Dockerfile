@@ -6,10 +6,10 @@ ENV rpc-password=admin
 RUN apk add --update --no-cache \
     transmission-daemon gettext
 
-RUN mkdir -p /transmission/{downloads,incomplete,conf}  && ls -lha /transmission/ && mkdir -p /transmission/conf
+RUN mkdir -p /transmission/{downloads,incomplete,conf}  && mkdir -p /transmission/conf && ls -lha /transmission/
  
   
-ADD settings.json /transmission/conf/settings.json && ls -lha /transmission/conf
+COPY settings.json /transmission/conf && ls -lha /transmission/conf
 
 # RUN cat /transmission/settings.json | envsubst > /transmission/settings.json
 
@@ -19,5 +19,5 @@ VOLUME ["/transmission/incomplete"]
 
 EXPOSE 9091 51413/tcp 51413/udp
 
-CMD exec /usr/bin/transmission-daemon --foreground  --config-dir /etc/transmission-daemon
+CMD exec /usr/bin/transmission-daemon --foreground  --config-dir /transmission/conf
 
