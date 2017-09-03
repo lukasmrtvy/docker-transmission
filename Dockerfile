@@ -6,11 +6,11 @@ ENV rpc_password=admin
 RUN apk add --update --no-cache \
     transmission-daemon gettext
     
-RUN mkdir -p /transmission/downloads /transmission/incomplete /transmission/conf && ls -lha /transmission/
+RUN mkdir -p /transmission/downloads /transmission/incomplete /transmission/conf 
 
 COPY settings.json /transmission/conf/settings.json.template
 
-RUN cat /transmission/conf/settings.json.template | envsubst > /transmission/conf/settings.json 
+RUN cat /transmission/conf/settings.json.template | envsubst > /transmission/conf/settings.json && rm /transmission/conf/settings.json.template
 
 VOLUME ["/transmission/conf"]
 VOLUME ["/transmission/downloads"]
