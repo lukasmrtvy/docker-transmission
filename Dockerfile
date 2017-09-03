@@ -1,12 +1,17 @@
 FROM alpine:latest
 
+ENV user=admin
+ENV password=admin
+
 RUN apk add --update --no-cache \
-    transmission-daemon 
+    transmission-daemon gettext
 
 RUN mkdir -p /transmission/downloads \
   && mkdir -p /transmission/incomplete 
   
 ADD settings.json /transmission/
+
+RUN cat .env /transmission/settings.json | envsubst > /transmission/settings.json
 
 VOLUME ["/etc/transmission-daemon"]
 VOLUME ["/transmission/downloads"]
