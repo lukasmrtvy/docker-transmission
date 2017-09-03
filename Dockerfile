@@ -1,7 +1,7 @@
 FROM alpine:latest
 
-ENV user=admin
-ENV password=admin
+ENV rpc-username=admin
+ENV rpc-password=admin
 
 RUN apk add --update --no-cache \
     transmission-daemon gettext
