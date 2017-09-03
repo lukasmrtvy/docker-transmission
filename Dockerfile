@@ -8,9 +8,9 @@ RUN apk add --update --no-cache \
     
 RUN mkdir -p /transmission/downloads /transmission/incomplete /transmission/conf && ls -lha /transmission/
 
-COPY settings.json /transmission/conf/
+COPY settings.json /transmission/conf/settings.json.template
 
-#RUN cat /transmission/conf/settings.json | envsubst > /transmission/conf/settings.json
+RUN cat /transmission/conf/settings.json.template | envsubst > /transmission/conf/settings.json 
 
 VOLUME ["/transmission/conf"]
 VOLUME ["/transmission/downloads"]
