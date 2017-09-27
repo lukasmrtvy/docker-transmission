@@ -1,16 +1,15 @@
 FROM alpine:latest
 
-ENV rpc_username=admin
-ENV rpc_password=admin
+#ENV rpc_username=admin
+#ENV rpc_password=admin
 
-RUN apk add --update --no-cache \
-    transmission-daemon gettext
+RUN apk add --update --no-cache transmission-daemon 
     
 RUN mkdir -p /transmission/downloads /transmission/incomplete /transmission/conf 
 
-COPY settings.json /transmission/conf/settings.json.template
+#COPY settings.json /transmission/conf/settings.json.template
 
-RUN cat /transmission/conf/settings.json.template | envsubst > /transmission/conf/settings.json && rm /transmission/conf/settings.json.template
+#RUN cat /transmission/conf/settings.json.template | envsubst > /transmission/conf/settings.json && rm /transmission/conf/settings.json.template
 
 VOLUME ["/transmission/conf"]
 VOLUME ["/transmission/downloads"]
