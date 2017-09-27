@@ -21,6 +21,6 @@ USER ${USER}
 
 LABEL name=Transmission
 LABEL version=
-LABEL url=
+LABEL url=https://api.github.com/repos/transmission/transmission/releases/latest 
 
 CMD transmission-daemon --foreground  --auth --username ${rpc_username} --password ${rpc_password} --allowed "*" --download-dir /transmission/downloads --incomplete-dir  /transmission/incomplete --config-dir /transmission/conf
