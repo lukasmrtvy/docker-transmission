@@ -18,5 +18,5 @@ VOLUME ["/transmission/incomplete"]
 
 EXPOSE 9091 51413/tcp 51413/udp
 
-CMD exec /usr/bin/transmission-daemon --foreground  --config-dir /transmission/conf
-
+#CMD exec /usr/bin/transmission-daemon --foreground  --config-dir /transmission/conf
+CMD transmission-daemon -f --auth --username ${rpc_username} --password ${rpc_password} --download-dir /transmission/downloads --incomplete-dir  /transmission/incomplete
