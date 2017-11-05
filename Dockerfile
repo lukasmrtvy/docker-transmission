@@ -11,7 +11,7 @@ ENV GROUP htpc
 ENV TRANSMISSION_VERSION 2.92-r5
 
 RUN addgroup -S ${GROUP} -g ${GID} && adduser -D -S -u ${UID} ${USER} ${GROUP}  && \
-    apk add --update --no-cache transmission-daemon==${TRANSMISSION_VERSION} && \
+    apk add --update --no-cache tzdata transmission-daemon==${TRANSMISSION_VERSION} && \
     mkdir -p /transmission/downloads /transmission/incomplete /transmission/conf  && \
     chown -R ${USER}:${GROUP} /transmission/
 
