@@ -20,7 +20,7 @@ VOLUME ["/transmission/conf","/transmission/downloads", "/transmission/incomplet
 EXPOSE 9091 51413/tcp 51413/udp
 
 LABEL version=${TRANSMISSION_VERSION}
-LABEL url=https://api.github.com/repos/transmission/transmission/releases/latest 
+LABEL url=https://github.com/transmission/transmission/
 
 USER ${USER}
 
