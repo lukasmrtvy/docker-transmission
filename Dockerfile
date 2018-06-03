@@ -8,7 +8,7 @@ ENV GID 1000
 ENV USER htpc
 ENV GROUP htpc
 
-ENV TRANSMISSION_VERSION 2.92-r5
+ENV TRANSMISSION_VERSION 2.92-r8
 
 RUN addgroup -S ${GROUP} -g ${GID} && adduser -D -S -u ${UID} ${USER} ${GROUP}  && \
     apk add --update --no-cache tzdata transmission-daemon==${TRANSMISSION_VERSION} && \
